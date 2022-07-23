@@ -1,0 +1,27 @@
+#Run Postgresql container
+
+ - hosts: app
+   gather_facts: yes
+   tasks:
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+
+    - name: install pip dependencies
+      pip:
+        name: docker
+ 
+    - name: Create Postgres Container
+      docker_container:
+        name: postgres
+        image: postgres:alpine3.16
+        state: started
+        recreate: yes
+        ports:
+          - "5432:5432"
+        volumes:
+          - /home/hitch_postgres_data:/var/lib/postgresql/data
+        env:
+          POSTGRES_USER: "admin"
+          POSTGRES_PASSWORD: "P4ssw0rd"

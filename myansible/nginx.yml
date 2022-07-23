@@ -1,0 +1,21 @@
+- hosts: jenkins
+  become: yes
+  gather_facts: yes
+  tasks:
+        - name: 'update'
+          apt:
+            update_cache: yes
+
+        - name: 'upgrade'
+          apt:
+            upgrade: dist
+
+        - name: 'install nginx'
+          apt: 
+            name: nginx 
+            state: latest
+
+        - name: start nginx
+          service:
+              name: nginx
+              state: started

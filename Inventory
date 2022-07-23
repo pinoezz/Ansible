@@ -1,0 +1,5 @@
+[monitoring]
+103.171.85.159  ansible_user=monitor
+
+[app]
+103.55.37.185 ansible_user=app

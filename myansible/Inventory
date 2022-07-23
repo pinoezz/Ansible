@@ -1,0 +1,13 @@
+[all]
+54.251.165.147 ansible_user=jenkins
+13.215.50.218 ansible_user=ubuntu
+103.191.92.239 ansible_user=pino
+
+[jenkins]
+54.251.165.147 ansible_user=jenkins
+
+[app]
+13.215.50.218 ansible_user=ubuntu
+
+[kubernetes]
+103.191.92.239 ansible_user=pino
